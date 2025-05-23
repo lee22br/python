@@ -12,6 +12,10 @@ total = 10 // 3
 print(total)
 total = 10 ** 3
 print(total)
+total = 110
+print(total)
+total += 5
+print(total)
 
 x = 12.5
 y = 10
@@ -41,4 +45,13 @@ length = 5
 vol = length ** 3
 # Print the volume
 print(vol)
+
+# Create the fee and discount_percent variables
+assign = 1536
+# Compute discount and assign it to the discount variable
+discount_percent = 10
+discount = assign*(discount_percent/100)
+# Compute and print the fee you have to pay
+print(assign-discount)
+
 
