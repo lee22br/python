@@ -1,15 +1,14 @@
 """Functions for implementing the rules of the classic arcade game Pac-Man."""
 
-
 def eat_ghost(power_pellet_active, touching_ghost):
     """Verify that Pac-Man can eat a ghost if he is empowered by a power pellet.
     :param power_pellet_active: bool - does the player have an active power pellet?
     :param touching_ghost: bool - is the player touching a ghost?
     :return: bool - can a ghost be eaten?
     """
-    result = False;
-    if power_pellet_active == True:
-        if touching_ghost == True:
+    result = False
+    if power_pellet_active:
+        if touching_ghost:
             result = True
     return result
 
@@ -21,7 +20,7 @@ def score(touching_power_pellet, touching_dot):
     :return: bool - has the player scored or not?
     """
     result = False
-    if touching_dot == True or touching_power_pellet == True:
+    if touching_dot or touching_power_pellet:
         result = True
     return result
 
@@ -33,11 +32,10 @@ def lose(power_pellet_active, touching_ghost):
     :return: bool - has the player lost the game?
     """
     result = False
-    if power_pellet_active == False:
-        if touching_ghost == True:
+    if not power_pellet_active:
+        if touching_ghost:
             result = True
     return result
-
 
 
 def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
@@ -48,12 +46,11 @@ def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
     :return: bool - has the player won the game?
     """
     result = False
-    if has_eaten_all_dots == True:
+    if has_eaten_all_dots:
         result = True
-        if power_pellet_active == False and touching_ghost == True:
+        if not power_pellet_active and touching_ghost:
             result = False
-        if power_pellet_active == True and touching_ghost == True:
+        if power_pellet_active and touching_ghost:
             result = True
     return result
-
 
