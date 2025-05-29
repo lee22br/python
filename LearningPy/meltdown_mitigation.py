@@ -18,7 +18,6 @@ def is_criticality_balanced(temperature, neutrons_emitted):
             result = True
     return result
 
-
 def reactor_efficiency(voltage, current, theoretical_max_power):
     """Assess reactor efficiency zone.
     :param voltage: int or float - voltage value.
