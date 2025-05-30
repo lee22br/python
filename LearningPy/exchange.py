@@ -32,7 +32,11 @@ def remove_suffix_ness(word):
     :return: str - of word with suffix removed & spelling adjusted.
     For example: "heaviness" becomes "heavy", but "sadness" becomes "sad".
     """
-    return word[:-5] + 'y' if word.endswith('iness') else word[:-4]
+    if word.endswith('iness'):
+        result = word[:-5] + 'y'
+    else:
+        result = word[:-4]
+    return result
 
 
 def adjective_to_verb(sentence, index):
