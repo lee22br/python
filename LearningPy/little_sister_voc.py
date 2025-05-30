@@ -7,8 +7,8 @@ def add_prefix_un(word):
     :param word: str - containing the root word.
     :return: str - of root word prepended with 'un'.
     """
-
-    pass
+    result = 'un'+word
+    return result
 
 
 def make_word_groups(vocab_words):
@@ -27,7 +27,6 @@ def make_word_groups(vocab_words):
     """
 
     pass
-
 
 def remove_suffix_ness(word):
     """Remove the suffix from the word while keeping spelling in mind.
