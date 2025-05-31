@@ -25,8 +25,12 @@ def make_word_groups(vocab_words):
     For example: list('en', 'close', 'joy', 'lighten'),
     produces the following string: 'en :: enclose :: enjoy :: enlighten'.
     """
-
-    pass
+    separator = ' :: '
+    prefix = vocab_words[0]
+    words = vocab_words[1:]
+    prefixed_words = [prefix + word for word in words]
+    result = prefix + separator + separator.join(prefixed_words)
+    return result
 
 def remove_suffix_ness(word):
     """Remove the suffix from the word while keeping spelling in mind.
@@ -36,8 +40,11 @@ def remove_suffix_ness(word):
 
     For example: "heaviness" becomes "heavy", but "sadness" becomes "sad".
     """
-
-    pass
+    if word.endswith('iness'):
+        result = word[:-5] + 'y'
+    else:
+        result = word[:-4]
+    return result
 
 
 def adjective_to_verb(sentence, index):
@@ -49,5 +56,4 @@ def adjective_to_verb(sentence, index):
 
     For example, ("It got dark as the sun set.", 2) becomes "darken".
     """
-
-    pass
+    return sentence.split()[index].strip('.')+'en'
