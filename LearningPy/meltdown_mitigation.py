@@ -1,6 +1,5 @@
 """Functions to prevent a nuclear meltdown."""
 
-
 def is_criticality_balanced(temperature, neutrons_emitted):
     """Verify criticality is balanced.
     :param temperature: int or float - temperature value in kelvin.
@@ -65,4 +64,3 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
     else:
         result = 'DANGER'
     return result
-
