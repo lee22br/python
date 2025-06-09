@@ -6,7 +6,10 @@ def add_item(current_cart, items_to_add):
     :param items_to_add: iterable - items to add to the cart.
     :return: dict - the updated user cart dictionary.
     """
-    pass
+    for item in items_to_add:
+        current_cart.setdefault(item, 0)
+        current_cart[item] += 1
+    return current_cart
 
 
 def read_notes(notes):
@@ -14,7 +17,7 @@ def read_notes(notes):
     :param notes: iterable of items to add to cart.
     :return: dict - a user shopping cart dictionary.
     """
-    pass
+    return dict.fromkeys(notes, 1)
 
 
 def update_recipes(ideas, recipe_updates):
@@ -23,7 +26,8 @@ def update_recipes(ideas, recipe_updates):
     :param recipe_updates: dict - dictionary with updates for the ideas section.
     :return: dict - updated "recipe ideas" dict.
     """
-    pass
+    ideas.update(recipe_updates)
+    return ideas
 
 
 def sort_entries(cart):
@@ -31,7 +35,7 @@ def sort_entries(cart):
     :param cart: dict - a users shopping cart dictionary.
     :return: dict - users shopping cart sorted in alphabetical order.
     """
-    pass
+    return dict(sorted(cart.items()))
 
 
 def send_to_store(cart, aisle_mapping):
@@ -40,7 +44,10 @@ def send_to_store(cart, aisle_mapping):
     :param aisle_mapping: dict - aisle and refrigeration information dictionary.
     :return: dict - fulfillment dictionary ready to send to store.
     """
-    pass
+    result = {}
+    for key in cart.keys():
+        result[key] = [cart[key]] + aisle_mapping[key]
+    return dict(sorted(result.items(), reverse=True))
 
 
 def update_store_inventory(fulfillment_cart, store_inventory):
@@ -49,4 +56,4 @@ def update_store_inventory(fulfillment_cart, store_inventory):
     :param store_inventory: dict - store available inventory
     :return: dict - store_inventory updated.
     """
-    pass
+    # TODO: implement with for fulfillment_cart.items
