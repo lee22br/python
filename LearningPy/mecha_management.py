@@ -56,4 +56,9 @@ def update_store_inventory(fulfillment_cart, store_inventory):
     :param store_inventory: dict - store available inventory
     :return: dict - store_inventory updated.
     """
-    # TODO: implement with for fulfillment_cart.items
+    for key, value in fulfillment_cart.items():
+        if store_inventory[key][0] - value[0] > 0:
+            store_inventory[key][0] -= value[0]
+        else:
+            store_inventory[key][0] = 'Out of Stock'
+    return store_inventory
